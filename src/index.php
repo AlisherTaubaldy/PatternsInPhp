@@ -17,7 +17,7 @@ echo $sea->planDelivery();
 echo $sea->createTransport();*/
 
 //Abstract Factory
-
+/*
 use App\AbstractFactory\AfricaFactory;
 use App\AbstractFactory\AsiaFactory;
 
@@ -33,6 +33,24 @@ $africaCarnivore = $africaFactory->createCarnivore();
 echo "🌍 Africa:\n";
 echo $asiaCarnivore->hunt($asiaHerbivore) . "\n";
 echo "🌍 Asia:\n";
-echo $africaCarnivore->hunt($africaHerbivore) . "\n";
+echo $africaCarnivore->hunt($africaHerbivore) . "\n";*/
+
+use App\Builder\BurgerDirector;
+use App\Builder\CheeseBurgerBuilder;
+use App\Builder\VeggieBurgerBuilder;
+
+$director = new BurgerDirector();
+
+echo "Cheese Burger: ";
+$cheeseBurgerBuilder = new CheeseBurgerBuilder();
+$cheeseBurger = $director->createBurger($cheeseBurgerBuilder);
+
+echo $cheeseBurger->getBurger();
+
+echo "Veggie Burger: ";
+$veggieBurgerBuilder = new VeggieBurgerBuilder();
+$veggieBurger = $director->createBurger($veggieBurgerBuilder);
+
+echo $veggieBurger->getBurger();
 
 
